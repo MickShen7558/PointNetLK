@@ -5,7 +5,7 @@ PY3="nice -n 10 python"
 
 # for output
 #RES="${HOME}/results/ex1/icp"
-RES="${HOME}/results/ex1/plk"
+RES="${HOME}/PointNet_results/ex1/plk"
 
 # gather 'result_*.csv' to 'result.csv'
 ${PY3} result_stat.py --hdr > ${RES}/result.csv

@@ -3,7 +3,7 @@
 # generate perturbations for each object (for each 'ModelNet40/[category]/test/*')
 
 # for output
-OUTDIR=${HOME}/results/gt
+OUTDIR=${HOME}/PointNet_results/gt
 mkdir -p ${OUTDIR}
 
 # Python3 command

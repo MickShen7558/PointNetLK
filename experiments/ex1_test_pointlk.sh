@@ -1,7 +1,7 @@
 #! /usr/bin/bash
 
 # for output
-OUTDIR=${HOME}/results/ex1/plk
+OUTDIR=${HOME}/PointNet_results/ex1/plk
 mkdir -p ${OUTDIR}
 
 # Python3 command
