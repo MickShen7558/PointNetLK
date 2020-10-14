@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 
 # for output
 mkdir -p /data/PointNet_results
