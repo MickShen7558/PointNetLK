@@ -92,6 +92,9 @@ def run(args, trainset, testset, action):
     if args.pretrained:
         assert os.path.isfile(args.pretrained)
         model.load_state_dict(torch.load(args.pretrained, map_location='cpu'))
+    if torch.cuda.device_count() > 1:
+        print("Let's use", torch.cuda.device_count(), "GPUs!")
+        model = torch.nn.DataParallel(model)
     model.to(args.device)
 
     checkpoint = None
