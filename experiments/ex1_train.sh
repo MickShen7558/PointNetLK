@@ -12,7 +12,7 @@ ${PY3} train_classifier.py \
  -o /data/PointNet_results/ex1_classifier_0915 \
  -i /data/ModelNet40/ \
  -c ./sampledata/modelnet40_half1.txt \
- -b 108 \
+ -b 216 \
  -l /data/PointNet_results/ex1_classifier_0915.log \
  --device cuda:1
 
