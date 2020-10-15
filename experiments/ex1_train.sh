@@ -12,9 +12,9 @@ ${PY3} train_classifier.py \
  -o /data/PointNet_results/ex1_classifier_0915 \
  -i /data/ModelNet40/ \
  -c ./sampledata/modelnet40_half1.txt \
- -l /data/PointNet_results/ex1_classifier_0915.log \
  -b 108 \
- --device cuda
+ -l /data/PointNet_results/ex1_classifier_0915.log \
+ --device cuda:1
 
 # the one of the results is '${HOME}/results/ex1_classifier_0915_feat_best.pth'
 # this file is the model that computes PointNet feature.
@@ -26,10 +26,9 @@ ${PY3} train_pointlk.py \
  -c ./sampledata/modelnet40_half1.txt \
  -l /data/PointNet_results/ex1_pointlk_0915.log \
  --transfer-from /data/PointNet_results/ex1_classifier_0915_feat_best.pth \
- -b 108 \
  --epochs 400 \
  --mag 1.0 \
- --device cuda
+ --device cuda:1
 
 # the trained model:
 # ${HOME}/results/ex1_pointlk_0915_model_best.pth
