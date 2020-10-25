@@ -156,9 +156,10 @@ class RandomTransformSE3:
         amp = self.mag
         if self.randomly:
             # amp = torch.rand(1, 1) * self.mag
-            amp = (torch.rand(1, 1) - 0.5) * self.mag
-        x = torch.randn(1, 6)
-        x = x / x.norm(p=2, dim=1, keepdim=True) * amp
+            amp = self.mag
+        x = torch.rand(1, 6) - 0.5
+        x = x * amp
+        x[0, 3:] = torch.rand(3) * np.pi / 4
 
         return x # [1, 6]
 

@@ -29,10 +29,10 @@ def options(argv=None):
                         metavar='PATH', help='path to the categories to be tested') # eg. './sampledata/modelnet40_half1.txt'
 
     # settings for input data
-    parser.add_argument('--deg', default=60, type=float,
-                        metavar='T', help='fixed degree of rotation (perturbations) (default: 60)')
-    parser.add_argument('--max-trans', default=0.3, type=float,
-                        help='max translation in each axis (default: 0.3)')
+    parser.add_argument('--deg', default=45, type=float,
+                        metavar='T', help='fixed degree of rotation (perturbations) (default: 45)')
+    parser.add_argument('--max-trans', default=0.5, type=float,
+                        help='max translation in each axis (default: 0.5)')
     parser.add_argument('--format', default='wv', choices=['wv', 'wt'],
                         help='output format (default: wv (twist-vector), wt means rotation- and translation-vector)')
     parser.add_argument('--dataset-type', default='modelnet', choices=['modelnet'],

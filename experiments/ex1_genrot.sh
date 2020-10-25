@@ -3,14 +3,14 @@
 # generate perturbations for each object (for each 'ModelNet40/[category]/test/*')
 
 # for output
-OUTDIR=${HOME}/PointNet_results/ex1/gt
+OUTDIR=/data/PointNet_results/ex1/gt
 mkdir -p ${OUTDIR}
 
 # Python3 command
 PY3="nice -n 10 python"
 
 # categories for testing
-CMN="-i /home/yasuhiro/work/pointnet/ModelNet40 -c ./sampledata/modelnet40_half1.txt --format wt"
+CMN="-i /data/ModelNet40/ -c ./sampledata/modelnet40_half1.txt --format wt"
 
 ${PY3} generate_rotations.py ${CMN} -o ${OUTDIR}/pert_000.csv --deg 0.0
 ${PY3} generate_rotations.py ${CMN} -o ${OUTDIR}/pert_010.csv --deg 10.0
