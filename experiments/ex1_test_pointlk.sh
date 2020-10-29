@@ -15,7 +15,7 @@ CMN="-i /data/ModelNet40/ -c ./sampledata/modelnet40_half2.txt --format wt --pre
 PERDIR=/data/PointNet_results/gt
 
 # test PointNet-LK with given perturbations (see. 'ex1_genrot.sh' for perturbations)
-${PY3} test_pointlk.py ${CMN} -o ${OUTDIR}/result_010.csv -p ${PERDIR}/pert_010.csv -l ${OUTDIR}/log_010.log --device cuda:1
+${PY3} test_pointlk.py ${CMN} -o ${OUTDIR}/result_010.csv -p ${PERDIR}/pert_010.csv -l ${OUTDIR}/log_010.log
 
 
 #EOF
