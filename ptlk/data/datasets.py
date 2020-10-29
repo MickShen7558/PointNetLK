@@ -61,12 +61,12 @@ class CADset4tracking(torch.utils.data.Dataset):
 class CADset4tracking_fixed_perturbation(torch.utils.data.Dataset):
     @staticmethod
     def generate_perturbations(batch_size, mag, randomly=False):
-        if randomly:
-            amp = torch.rand(batch_size, 1) * mag
-        else:
-            amp = mag
-        x = torch.randn(batch_size, 6)
-        x = x / x.norm(p=2, dim=1, keepdim=True) * amp
+        amp = mag
+        x = torch.rand(batch_size, 6) - 0.5
+        x = x * amp
+        x[:, 3:] = torch.rand(batch_size, 3) * np.pi / 4
+        # x = torch.randn(batch_size, 6)
+        # x = x / x.norm(p=2, dim=1, keepdim=True) * amp
         return x.numpy()
 
     @staticmethod

@@ -35,7 +35,7 @@ def main(args):
         # me_rad: mean error of estimated rotation (angle in radian)
         # me_twist: mean error represented as norm of twist vector
         # me_vel: translation part of the twist. (rotation part is me_rad)
-        print('val, me_pos, me_rad, me_twist, me_vel')
+        print('val, rot-mse, rot-rmse, rot-mae, trans-mse, trans-rmse, trans-mae, me_twist, me_vel')
 
     if args.infile:
         npdata = numpy.loadtxt(args.infile, delimiter=',', skiprows=1)  # --> (N, 12)
@@ -52,13 +52,20 @@ def main(args):
         dw = dx[:, 0:3]       # [N, 3], rotation part of the twist error
         dv = dx[:, 3:6]       # [N, 3], translation part
 
-        ep = dp.norm(p=2, dim=1) # [N]
+        # ep = dp.norm(p=2, dim=1) # [N]
         ex = dx.norm(p=2, dim=1) # [N]
-        ew = dw.norm(p=2, dim=1) # [N]
+        # ew = dw.norm(p=2, dim=1) # [N]
         ev = dv.norm(p=2, dim=1) # [N]
 
-        e = torch.stack((ep, ew, ex, ev)) # [4, N]
-        me = torch.mean(e, dim=1) # [4]
+        rot-mse = dw.norm(p=2, dim=1)**2  # [N]
+        rot-mae = dw.norm(p=1, dim=1)  # [N]
+        trans-mse = dp.norm(p=2, dim=1)**2  # [N]
+        trans-mae = dp.norm(p=1, dim=1)  # [N]
+
+        e = torch.stack((rot-mse, rot-mse, rot-mae, trans-mse, trans-mse, trans-mae, ex, ev)) # [8, N]
+        me = torch.mean(e, dim=1) # [8]
+        me[1] = torch.sqrt(me[1])
+        me[4] = torch.sqrt(me[4])
 
         line = ','.join(map(str, me.numpy().tolist()))
         print('{},{}'.format(args.val, line))
