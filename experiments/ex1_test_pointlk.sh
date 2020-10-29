@@ -1,4 +1,4 @@
-#! /usr/bin/bash
+#!/bin/bash
 
 # for output
 OUTDIR=/data/PointNet_results/ex1/plk

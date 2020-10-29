@@ -1,4 +1,4 @@
-#! /usr/bin/bash
+#!/bin/bash
 
 # Python3 command
 PY3="nice -n 10 python"

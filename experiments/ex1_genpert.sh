@@ -1,4 +1,4 @@
-#! /usr/bin/bash
+#!/bin/bash
 
 # generate perturbations for each object (for each 'ModelNet40/[category]/test/*')
 
