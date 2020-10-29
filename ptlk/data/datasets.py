@@ -3,6 +3,7 @@
 import numpy
 import torch
 import torch.utils.data
+import numpy as np
 
 from . import globset
 from . import mesh
