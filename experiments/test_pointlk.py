@@ -16,6 +16,7 @@ import torchvision
 # addpath('../')
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir)))
 import ptlk
+import utils
 
 
 LOGGER = logging.getLogger(__name__)
@@ -155,6 +156,7 @@ class Action:
                 for i, data in enumerate(testloader):
                     p0, p1, igt = data
                     res = self.do_estimate(p0, p1, model, device) # --> [1, 4, 4]
+                    utils.print_gpu()
                     ig_gt = igt.cpu().contiguous().view(-1, 4, 4) # --> [1, 4, 4]
                     g_hat = res.cpu().contiguous().view(-1, 4, 4) # --> [1, 4, 4]
 
