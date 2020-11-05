@@ -12,7 +12,7 @@ def print_gpu(s=""):
         print("No cuda available now")
     elif torch.cuda.device_count() > 1:
         meminfo0 = pynvml.nvmlDeviceGetMemoryInfo(handle0)
-        meminfo1 = pynvml.nvmlDeviceGetMemoryInfo(handle0)
+        meminfo1 = pynvml.nvmlDeviceGetMemoryInfo(handle1)
         used = (meminfo0.used + meminfo1.used) / ratio
     else:
         meminfo0 = pynvml.nvmlDeviceGetMemoryInfo(handle0)
